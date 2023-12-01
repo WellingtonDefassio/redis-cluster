@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+
+  redis-b:
+    image: welldefassio/redis-b
+    networks:
+      - redis-cluster
+    ports:
+      - "6380:6380"
+
+  redis-c:
+    image: welldefassio/redis-c
+    networks:
+      - redis-cluster
+    ports:
+      - "6381:6381"
+    links:
+      - redis-b
+
+  redis-a:
+    image: welldefassio/redis-a
+    networks:
+      - redis-cluster
+    ports:
+      - "6379:6379"
+    links:
+      - "redis-c"
+
+
+networks:
+  redis-cluster:
+    driver: bridge
