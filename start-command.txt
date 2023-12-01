@@ -1,0 +1,1 @@
+docker run --name redis-cluster -p 6379:6379 -p 6380:6380 -p 6381:6381 welldefassio/redis-cluster

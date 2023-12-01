@@ -15,4 +15,6 @@ COPY start.sh .
 
 EXPOSE 6380 6381 6382
 
-CMD $app/start.sh
+ENTRYPOINT $app/start.sh
+
+CMD ["redis-cli"]

@@ -1,8 +1,0 @@
-cd A; docker build -t redis-a . ; cd .. ; cd B; docker build -t redis-b . ; cd .. ; cd C; docker build -t redis-c . ; cd ..
-
-
-docker tag redis-a welldefassio/redis-a ; docker tag redis-b welldefassio/redis-b ; docker tag redis-c welldefassio/redis-c 
-
-docker push welldefassio/redis-a ; docker push welldefassio/redis-b ; docker push welldefassio/redis-c 
-
-redis-cli --cluster create redis-a:6379 redis-b:6380 redis-c:6381
